@@ -1,0 +1,21 @@
+CREATE DATABASE keeperdb;
+
+
+CREATE TABLE notes (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+
+  email VARCHAR(255)
+  UNIQUE NOT NULL,
+
+  password TEXT NOT NULL
+);
+
+ALTER TABLE notes
+ADD COLUMN user_id INTEGER
+REFERENCES users(id);
