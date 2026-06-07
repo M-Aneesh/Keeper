@@ -46,7 +46,7 @@ A full-stack Notes Application built using the MERN stack with authentication, G
 project-root/
 │
 ├── client/
-│   ├── src/
+│   ├── src/component/pages
 │   ├── package.json
 │
 ├── server/
