@@ -4,7 +4,9 @@ server/node_modules
 client/dist
 server/dist
 
+.env
 server/.env
+client/.env
 
 # Logs
 logs
