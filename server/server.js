@@ -364,7 +364,7 @@ app.get("/auth/google/callback",passport.authenticate("google",
   (req, res) => {
     // Redirect to frontend after success
     res.redirect(
-      `${CLIENT_URL}/notes`
+      `${process.env.CLIENT_URL}/notes`
     );
   }
 );
