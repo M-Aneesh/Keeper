@@ -48,6 +48,7 @@ app.use(express.urlencoded({extended: true}));
 // =========================
 // SESSION CONFIGURATION
 // =========================
+app.set("trust proxy", 1);
 app.use(session({
     // Secret key for sessions
     secret:
@@ -58,7 +59,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
       // false for localhost
-      secure: false,
+      secure: true,
+      sameSite: "none",
       // Prevent JS access to cookie
       httpOnly: true,
     },
