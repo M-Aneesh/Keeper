@@ -130,6 +130,9 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 CLIENT_URL=http://localhost:5173
 GOOGLE_CALLBACK_URL=http://localhost:5000/auth/google/callback
+
+### Client (.env)
+VITE_API_URL=http://localhost:5000
 ```
 
 ---
