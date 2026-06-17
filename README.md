@@ -1,10 +1,16 @@
 # Keeper App
 
-A full-stack Notes Application built using the MERN stack with authentication, Google OAuth login, and user-specific notes.
+A full-stack Notes Application built using the PERN stack with authentication, Google OAuth login, and user-specific notes.
+
+## Live Demo
+
+Frontend: https://keeper-inky-one.vercel.app
+
+Backend API: https://keeper-zb37.onrender.com
 
 ---
 
-# Features
+## Features
 
 * User Registration & Login
 * Google OAuth Authentication
@@ -19,16 +25,17 @@ A full-stack Notes Application built using the MERN stack with authentication, G
 
 ---
 
-# Tech Stack
+## Tech Stack
 
-## Frontend
+### Frontend
 
 * React
 * React Router DOM
 * Axios
 * Material UI Icons
+* Vite
 
-## Backend
+### Backend
 
 * Node.js
 * Express.js
@@ -38,9 +45,15 @@ A full-stack Notes Application built using the MERN stack with authentication, G
 * Express Session
 * bcrypt
 
+### Deployment
+
+* Frontend: Vercel
+* Backend: Render
+* Database: Railway PostgreSQL
+
 ---
 
-# Project Structure
+## Project Structure
 
 ```bash
 project-root/
@@ -50,7 +63,7 @@ project-root/
 │   ├── package.json
 │
 ├── server/
-│   ├── index.js
+│   ├── server.js
 │   ├── db.js
 │   ├── package.json
 │
@@ -60,17 +73,16 @@ project-root/
 
 ---
 
-# Installation
+## Local Installation
 
-## Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/M-Aneesh/Keeper.git
+cd Keeper
 ```
 
----
-
-# Frontend Setup
+### Frontend Setup
 
 ```bash
 cd client
@@ -78,15 +90,13 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
+Runs on:
 
 ```bash
 http://localhost:5173
 ```
 
----
-
-# Backend Setup
+### Backend Setup
 
 ```bash
 cd server
@@ -94,7 +104,7 @@ npm install
 npm start
 ```
 
-Backend runs on:
+Runs on:
 
 ```bash
 http://localhost:5000
@@ -102,13 +112,13 @@ http://localhost:5000
 
 ---
 
-# Environment Variables
+## Environment Variables
 
-Create a `.env` file inside the `server` folder.
+### Server (.env)
 
 ```env
 DB_USER=your_db_user
-DB_HOST=localhost
+DB_HOST=your_db_host
 DB_NAME=your_db_name
 DB_PASSWORD=your_db_password
 DB_PORT=5432
@@ -117,53 +127,46 @@ SESSION_SECRET=your_secret
 
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+CLIENT_URL=http://localhost:5173
+GOOGLE_CALLBACK_URL=http://localhost:5000/auth/google/callback
 ```
 
 ---
 
-# Google OAuth Setup
+## API Routes
 
-1. Go to Google Cloud Console
-2. Create OAuth Credentials
-3. Add Authorized JavaScript Origin:
+### Authentication
 
-```bash
-http://localhost:5173
-```
+| Method | Route        | Description          |
+| ------ | ------------ | -------------------- |
+| POST   | /register    | Register User        |
+| POST   | /login       | Login User           |
+| POST   | /logout      | Logout User          |
+| GET    | /auth/google | Google Login         |
+| GET    | /check-auth  | Check Authentication |
 
-4. Add Redirect URI:
+### Notes
 
-```bash
-http://localhost:5000/auth/google/callback
-```
-
----
-
-# API Routes
-
-## Authentication
-
-| Method | Route          | Description          |
-| ------ | -------------- | -------------------- |
-| POST   | `/register`    | Register User        |
-| POST   | `/login`       | Login User           |
-| POST   | `/logout`      | Logout User          |
-| GET    | `/auth/google` | Google Login         |
-| GET    | `/check-auth`  | Check Authentication |
+| Method | Route      | Description    |
+| ------ | ---------- | -------------- |
+| GET    | /notes     | Get User Notes |
+| POST   | /notes     | Create Note    |
+| PUT    | /notes/:id | Edit Note      |
+| DELETE | /notes/:id | Delete Note    |
 
 ---
 
-## Notes
+## Deployment
 
-| Method | Route        | Description    |
-| ------ | ------------ | -------------- |
-| GET    | `/notes`     | Get User Notes |
-| POST   | `/notes`     | Create Note    |
-| PUT    | `/notes/:id` | Edit Note      |
-| DELETE | `/notes/:id` | Delete Note    |
+Frontend deployed on Vercel
+
+Backend deployed on Render
+
+Database hosted on Railway PostgreSQL
 
 ---
 
-# Author
+## Author
 
-Made by Aneesh
+Made by Aneesh M
