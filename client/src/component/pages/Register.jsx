@@ -15,6 +15,8 @@ import LockIcon from "@mui/icons-material/Lock";
 import HomeIcon from '@mui/icons-material/Home';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Register() {
   // Hook used for redirecting user after registration
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ function Register() {
     event.preventDefault();
     try {
       // Send registration data to backend
-      await axios.post("http://localhost:5000/register",
+      await axios.post(`${API_URL}/register`,
         formData
       );
       // Show success alert

@@ -3,14 +3,14 @@ import React,{ useState, useEffect }from "react";
 // Import axios for backend requests
 import axios from "axios";
 // Import Material UI Add icon
-import AddTaskIcon
-from "@mui/icons-material/AddTask";
+import AddTaskIcon from "@mui/icons-material/AddTask";
 // Floating action button component
-import Fab
-from "@mui/material/Fab";
+import Fab from "@mui/material/Fab";
 // Zoom animation component
-import Zoom
-from "@mui/material/Zoom";
+import Zoom from "@mui/material/Zoom";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 function CreateArea(props) {
   // Controls whether note area is expanded
@@ -79,7 +79,7 @@ function CreateArea(props) {
       // user is editing an old note
       if (props.editingNote) {
         // Update note in backend
-        await axios.put(`http://localhost:5000/notes/${props.editingNote.id}`, note,
+        await axios.put(`${API_URL}/notes/${props.editingNote.id}`, note,
           {
             withCredentials: true,
           }

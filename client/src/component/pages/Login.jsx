@@ -14,6 +14,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import LoginIcon from "@mui/icons-material/Login";
 import HomeIcon from '@mui/icons-material/Home';
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login() {
   // Hook used for programmatic navigation
@@ -43,7 +44,7 @@ function Login() {
     try {
       // Send login request to backend
       const response =
-        await axios.post("http://localhost:5000/login",
+        await axios.post(`${API_URL}/login`,
           // Send form data
           formData,
           {

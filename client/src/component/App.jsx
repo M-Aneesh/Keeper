@@ -12,6 +12,8 @@ import CreateArea from "./CreateArea";
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   // Used for route navigation
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ function App() {
   async function fetchNotes() {
     try {
       // GET request to backend
-      const res = await axios.get("http://localhost:5000/notes",
+      const res = await axios.get(`${API_URL}/notes`,
           {
             // Required for session cookies
             withCredentials: true,
@@ -55,7 +57,7 @@ function App() {
   async function addNote(newNote) {
     try {
       // Send new note to backend
-      const res = await axios.post("http://localhost:5000/notes", newNote,
+      const res = await axios.post(`${API_URL}/notes`, newNote,
           {
             withCredentials: true,
           }
@@ -79,7 +81,7 @@ function App() {
   async function deleteNote(id) {
     try {
       // Delete note from database
-      await axios.delete(`http://localhost:5000/notes/${id}`,
+      await axios.delete(`${API_URL}/notes/${id}`,
         {
           withCredentials: true,
         }
@@ -112,7 +114,7 @@ function App() {
   async function handleLogout() {
     try {
       // Logout request to backend
-      await axios.post("http://localhost:5000/logout",
+      await axios.post(`${API_URL}/logout`,
         {},
         {
           withCredentials: true,
