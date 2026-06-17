@@ -35,7 +35,7 @@ const saltRounds = 10;
 // Enable CORS for frontend
 app.use(cors({
     // Frontend URL
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     // Allow cookies/sessions
     credentials: true,
   })
@@ -144,8 +144,7 @@ passport.use(new GoogleStrategy.Strategy(
       clientSecret:
         process.env.GOOGLE_CLIENT_SECRET,
       // Redirect URL after login
-      callbackURL:
-        "http://localhost:5000/auth/google/callback",
+      callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     async (accessToken,refreshToken,profile,done) => {
       try {
@@ -365,7 +364,7 @@ app.get("/auth/google/callback",passport.authenticate("google",
   (req, res) => {
     // Redirect to frontend after success
     res.redirect(
-      "http://localhost:5173/notes"
+      `${CLIENT_URL}/notes`
     );
   }
 );

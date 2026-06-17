@@ -9,12 +9,14 @@ import GoogleIcon from '@mui/icons-material/Google';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
+
+const API_URL = import.meta.env.VITE_API_URL;
 function Home() {
   // Function to start Google OAuth login
   function googleLogin() {
     // Opens backend Google auth route
     // "_self" opens in same tab
-    window.open("http://localhost:5000/auth/google","_self"
+    window.open(`${API_URL}/auth/google`,"_self"
     );
   }
   return (
